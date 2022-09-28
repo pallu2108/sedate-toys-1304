@@ -1,12 +1,13 @@
 import React from 'react'
 import Search from './Search'
+import { Box } from '@chakra-ui/react'
 
 const Navbar = () => {
   return (
-    <div>
+    <Box>
       <h1>NAvBar</h1>
       <Search/>
-    </div>
+    </Box>
   )
 }
 
