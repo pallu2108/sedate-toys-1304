@@ -5,7 +5,7 @@ import searchBackgroundImage from "../img/homemarSearch.webp"
 const Search = () => {
   return (
     <>
-    <Flex m={"auto"} w={'70%'}
+    {/* <Flex m={"auto"} w={'70%'}
  
     h={'384px'}
     backgroundImage={
@@ -13,7 +13,7 @@ const Search = () => {
     }
     backgroundSize={'cover'}
     backgroundPosition={'center center'}>
-    </Flex>
+    </Flex> */}
        <Input type="text" placeholder='Akash code here'/>
 </>
   )
