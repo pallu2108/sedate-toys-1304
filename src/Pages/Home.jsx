@@ -1,7 +1,10 @@
  import {GoPrimitiveDot} from "react-icons/go"
+import Search from "../Components/Search";
 import  "./home.css"
 function Home(){
     return(
+      <>
+      <Search/>
         <div className="main-div">
             <div></div>
             <div></div>
@@ -175,6 +178,7 @@ function Home(){
               </div>
             </div>
         </div>
+        </>
     )
 }
 export default Home;
