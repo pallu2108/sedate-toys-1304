@@ -8,6 +8,8 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { FiEdit2 } from "react-icons/fi";
 import Weblogo from "../img/Tripadvisor_lockup_horizontal_secondary_registered.svg"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import Search from './Search';
+import HotelCard from '../Pages/Hotel/HotelCard';
 
 const Links = [
   {titel:'Review',
@@ -68,6 +70,7 @@ export const Navbar=()=> {
         ) : null}
       </Box>
     </div>
+    < Search/>
     </>
   );
 }
