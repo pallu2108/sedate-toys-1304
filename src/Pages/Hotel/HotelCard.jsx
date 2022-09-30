@@ -20,7 +20,7 @@ const HotelCard = ({id,srcImg,name,ratePic,type,comment,price,reviews,imageSrc,r
                     <HStack alignItems={"flex-start"} justifyContent={"flex-start"} divider={<StackDivider borderColor='gray.200' />}>
                         <VStack wrap={"wrap"} width={"30%"} padding={"10px"} >
                             <Img width={"50%"} src='https://static.tacdn.com/img2/branding/hotels/Agoda.png' alt='' />
-                            <Text fontWeight={"500"} fontSize={["18px", "20px", "22px"]} _hover={{ textDecoration: "underline" }}>Price: ₹{price ? price : 2400}</Text>
+                            <Text fontWeight={"500"} fontSize={["18px", "20px", "22px"]} _hover={{ textDecoration: "underline" }}>Price: ₹{price ? price -(price*30/100) : 2400}</Text>
                             <Button size='sm' borderRadius={"20px"} bg="#f2b203" width={"100%"} backgroundColor={"#f2b203"} color={"black"}>
                                <HStack spacing={3}> <Text>View Deal</Text> <Badge borderRadius='full' p='1' colorScheme='teal'>30% off</Badge></HStack>
                             </Button>
