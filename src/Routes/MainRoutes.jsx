@@ -11,6 +11,7 @@ const MainRoutes = () => {
   return (
     <>
     <Navbar/>
+
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/review" element={<Review/>}/>

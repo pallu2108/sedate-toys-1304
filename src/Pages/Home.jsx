@@ -1,8 +1,12 @@
  import {GoPrimitiveDot} from "react-icons/go"
-import Footer from "../Components/Footer";
+
+import Footer from "../Components/Footer
+
+
 import  "./home.css"
 function Home(){
     return(
+      <>
         <div className="main-div">
             <div></div>
             <div></div>
@@ -228,6 +232,7 @@ function Home(){
               </div>
               <div></div>
         </div>
+        </>
     )
 }
 export default Home;
