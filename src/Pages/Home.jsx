@@ -1,6 +1,6 @@
  import {GoPrimitiveDot} from "react-icons/go"
 
-import Footer from "../Components/Footer
+import Footer from "../Components/Footer"
 
 
 import  "./home.css"
