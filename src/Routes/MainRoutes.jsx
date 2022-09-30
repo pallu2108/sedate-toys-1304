@@ -5,6 +5,7 @@ import { Navbar } from '../Components/Navbar';
 import Alert from '../Pages/Alert';
 
 import Home from '../Pages/Home';
+import { Restaurants } from '../Pages/Resturants';
 import Review from '../Pages/Review';
 import Trips from '../Pages/Trips';
 const MainRoutes = () => {
@@ -17,6 +18,7 @@ const MainRoutes = () => {
         <Route path="/review" element={<Review/>}/>
         <Route path="/trips" element={<Trips/>}/>
         <Route path="/alert" element={<Alert/>}/>
+        <Route path="/resturants" element={<Restaurants/>}/>
         <Route path="/footer" element={<Footer/>}/>
       </Routes>
     </>
