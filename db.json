@@ -308,7 +308,7 @@
     {
       "id": 1,
       "name": "Paasha",
-      "rating": 5,
+      "price": 1050,
       "ratePic": [
         {
           "id": 1,
@@ -339,6 +339,7 @@
       "id": 2,
       "name": "Alto Vino",
       "rating": 4,
+      "price":2000 ,
       "ratePic": [
         {
           "id": 1,
@@ -365,6 +366,7 @@
       "id": 3,
       "name": "Spice Kitchen",
       "rating": 4,
+      "price":3000 ,
       "ratePic": [
         {
           "id": 1,
@@ -391,6 +393,7 @@
       "id": 4,
       "name": "Ukiyo",
       "rating": 5,
+      "price": 4000,
       "ratePic": [
         {
           "id": 1,
@@ -421,6 +424,7 @@
       "id": 5,
       "name": "Aasmana",
       "rating": 4,
+      "price": 4200,
       "ratePic": [
         {
           "id": 1,
@@ -447,6 +451,7 @@
       "id": 6,
       "name": "Three Kitchens Restaurant and Bar",
       "rating": 4,
+      "price": 3800,
       "ratePic": [
         {
           "id": 1,
@@ -473,6 +478,7 @@
       "id": 7,
       "name": "Masaic",
       "rating": 5,
+      "price": 2700,
       "ratePic": [
         {
           "id": 1,
@@ -503,6 +509,7 @@
       "id": 8,
       "name": "The Market",
       "rating": 4,
+      "price": 7300 ,
       "ratePic": [
         {
           "id": 1,

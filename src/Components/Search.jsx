@@ -9,6 +9,7 @@ import { IoIosAdd, IoMdHome } from 'react-icons/io'
 import { ImSpoonKnife } from "react-icons/im"
 import { BsFillChatRightTextFill } from "react-icons/bs"
 import searchBackgroundImage from "../img/homemarSearch.webp"
+import { NavLink } from 'react-router-dom'
 
 
 
@@ -21,11 +22,15 @@ const Search = () => {
     <Flex alignItems={'center'}  px={[null,null,40]}>
     <HStack spacing={4}>
   <InputGroup>
-    <InputLeftElement
+  <NavLink to={"/resturants"}>
+  <InputLeftElement
+    
       pointerEvents='none'
       children={<FaHotel color='gray.300' />}
     />
     <Input type='text' placeholder='Hotels' />
+    </NavLink>
+    
   </InputGroup>
 <InputGroup>
     <InputLeftElement
@@ -53,14 +58,14 @@ const Search = () => {
       pointerEvents='none'
       children={<BsFillChatRightTextFill color='gray.300' />}
     />
-    <Input type='text' placeholder='Travels Fromus' />
+    <Input name='x' type='text' placeholder='Travels Fromus' />
   </InputGroup>
   <InputGroup>
     <InputLeftElement
       pointerEvents='none'
       children={<IoIosAdd color='gray.300' />}
     />
-    <Input type='text' placeholder='More' />
+    <Input name='x' placeholder='More' />
   </InputGroup>
 </HStack>
     </Flex>

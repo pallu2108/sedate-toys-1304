@@ -1,4 +1,4 @@
-import * as types from "./actionTypes";
+import * as types from "./actionType";
 import axios from "axios";
 
 export const hotelRequest = () => {
@@ -72,15 +72,25 @@ export const placesdata = (payload) => (dispatch) => {
     });
 };
 
+// export const getRestuarant =(params)= (dispatch) => {
+//   dispatch(restaurantRequest());
+//   return axios
+//     .get("http://localhost:8080/restaurants")
+//     .then((res) => {
+//       dispatch(restaurantSuccess(res.data));
+//     })
+//     .catch((err) => dispatch(restaurantFailure()));
+// };
 export const getRestuarant = (dispatch) => {
   dispatch(restaurantRequest());
   return axios
-    .get("http://localhost:8080/restaurants")
+    .get("https://trip-advisor.onrender.com/hotels")
     .then((res) => {
       dispatch(restaurantSuccess(res.data));
     })
     .catch((err) => dispatch(restaurantFailure()));
 };
+
 
 export const getSight = (dispatch) => {
   dispatch(sightRequest());
