@@ -1,4 +1,5 @@
  import {GoPrimitiveDot} from "react-icons/go"
+import Footer from "../Components/Footer";
 import  "./home.css"
 function Home(){
     return(
@@ -174,6 +175,57 @@ function Home(){
                 </div>
               </div>
             </div>
+            <div className="mid-sec-4">
+              <h1 className="header15">Top destination for your next holiday</h1>
+              <div className="mid-sec-4-A">
+                <div className="mid-sec-4-AA">
+                  <img className="image4A" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/6a/ff/2a/caption.jpg?w=300&h=300&s=1&cx=7014&cy=3760&chk=v1_14690e40614ca9b48b73" alt=""/>
+                  <h1 className="header16">Dubai,United</h1>
+                  <h1 className="header17">Arab Emirates</h1>
+                </div>
+                <div className="mid-sec-4-AA">
+                <img  className="image4A"src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/d2/2f/7a/palace-from-the-outside.jpg?w=300&h=300&s=1" alt=""/>
+                  <h1 className="header16">Bengaluru,India</h1>
+                </div>
+                <div className="mid-sec-4-AA">
+                <img className="image4A" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/d7/80/caption.jpg?w=300&h=300&s=1" alt=""/>
+                  <h1 className="header16">Pune,India</h1>
+                  {/* <h1 className="header17">India</h1> */}
+                </div>
+                <div className="mid-sec-4-AA">
+                <img className="image4A" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/98/f7/df/charminar.jpg?w=300&h=300&s=1" alt=""/>
+                  <h1 className="header16">Hyderabad,India</h1>
+                </div>
+              </div>
+            </div> 
+              <div className="mid-sec-5">
+                <h1 className="header14">Home Rentals Near You</h1>
+                <div className="mid-sec-5-A">
+                  <div className="mid-sec-5-AA">
+                    <h1 className="header18">We think you'd enjoy</h1>
+                    <h1 className="header18">these homes for a quick</h1>
+                    <h1 className="header18">trip out of town.</h1>
+                  </div>
+                  <div className="mid-sec-5-AA">
+                    <img className="image-mid-5" src="https://media-cdn.tripadvisor.com/media/vr-splice-j/07/20/99/ab.jpg" alt=""/>
+                    <h1 className="header19">Rentals in Khandala</h1>
+                    <h1 className="header20">52 rentals</h1>
+                  </div>
+                  <div className="mid-sec-5-AA">
+                    <img className="image-mid-5" src="https://media-cdn.tripadvisor.com/media/vr-splice-j/02/b3/61/da.jpg" alt=""/>
+                    <h1 className="header19">Rentals in Nashik</h1>
+                    <h1 className="header20">34 rentals</h1>
+                  </div>
+                  <div className="mid-sec-5-AA">
+                  <img className="image-mid-5" src="https://media-cdn.tripadvisor.com/media/vr-splice-j/07/aa/de/04.jpg" alt=""/>
+                    <h1 className="header19">Rentals in Igatpuri</h1>
+                    <h1 className="header20">16 rentals</h1>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <Footer/>
+              </div>
         </div>
     )
 }
