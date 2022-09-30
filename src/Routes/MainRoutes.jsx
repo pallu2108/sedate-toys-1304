@@ -16,7 +16,7 @@ const MainRoutes = () => {
         <Route path="/review" element={<Review/>}/>
         <Route path="/trips" element={<Trips/>}/>
         <Route path="/alert" element={<Alert/>}/>
-        {/* <Route path="/footer" element={<Footer/>}/> */}
+        <Route path="/footer" element={<Footer/>}/>
       </Routes>
     </>
   )

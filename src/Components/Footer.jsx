@@ -31,7 +31,7 @@ const Footer = () => {
           <h1 className='header2'>Sponsored Placements</h1>
           <h1 className='header2'>Access our Content API</h1>
           <h1 className='header1'>Get The App</h1>
-          <h1 className='header2'>iPhone App</h1>
+          <h1 className='header2'>iPhone App </h1>
           <h1 className='header2'>Android App </h1>
         </div>
         <div className='footer2'>
