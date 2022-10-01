@@ -4,26 +4,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./Restaurants.module.css";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  Box,
-} from "@chakra-ui/react";
 import Footer from "../Components/Footer";
-import { getRestuarant, POST_CART } from "../Redux/AppRedux/action";
+import { getRestuarant } from "../Redux/AppRedux/action";
 import HotelCard from "./Hotel/HotelCard";
 import Question from "../Components/Question";
 
 
-
-const Restaurants = () => {
+export const HotelSearch = () => {
   let dispatch = useDispatch();
   const ResturantsData = useSelector((store) => store.AppReducer.restaurant);
   const [sort, setSort] = useState("");
-
    
   const handleChangerating = (e) => {
     e.preventDefault();
@@ -58,9 +48,6 @@ const Restaurants = () => {
   useEffect(() => {
     dispatch(getRestuarant);
   }, [dispatch]);
-
-  console.log(sort,ResturantsData,77777777);
-//   console.log(price,99999999999999999999)
   return (
     <>
       <div className={styles.container}>
@@ -86,31 +73,20 @@ const Restaurants = () => {
               </select>
             </div>
             <div className={styles.ResturantsDataingDiv}>
-              {ResturantsData.filter((r) =>
+            {ResturantsData.filter((r) =>
                     r.type.includes("Hotel")).map((rest, ind) => {
                 return (
                   <div key={rest.id} className={styles.res}>
-                    <HotelCard imageSrc={rest.imageSrc} name={rest.name} id={rest.id} price={rest.price} rating={rest.rating} />
+                    <HotelCard imageSrc={rest.imageSrc} name={rest.name} id={rest.id} price={rest.price} rating={rest.rating}/>
                   </div>
                 );
               })}
             </div>
           </div>
         </div>
-            {/* <>
-            {ResturantsData.map((rest, ind) => {
-                return (
-                  <div key={rest.id} className={styles.res}>
-                    <Question location={rest.location}/>
-                  </div>
-                );
-              })}
-            </> */}
-            <Question/>
       </div>
+      <Question/>
       <Footer />
     </>
   );
 };
-
-export { Restaurants };

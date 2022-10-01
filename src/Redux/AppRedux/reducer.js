@@ -6,6 +6,7 @@ const initialState = {
   sight: [],
   isLoading: false,
   isError: false,
+  basket: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -55,6 +56,32 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case types.SIGHT_FAILURE: {
       return { ...state, isLoading: false, isError: true };
+    }
+    case types.ADD_TO_BASKET_SUCCESS: {
+      return {
+        isLoading: false,
+        isError: false,
+        basket: [...payload],
+      };
+    }
+
+    case types.ADD_TO_BASKET_FAILURE: {
+      return {
+        isLoading: false,
+        isError: true,
+      };
+    }
+
+    case types.REMOVE_FROM_BASKET_REQUEST: {
+      return { isLoading: true, isError: false };
+    }
+
+    case types.REMOVE_FROM_BASKET_SUCCESS: {
+      return { ...state, isLoading: false, isError: false };
+    }
+
+    case types.REMOVE_FROM_BASKET_FAILURE: {
+      return { isLoading: false, isError: true };
     }
 
     default:

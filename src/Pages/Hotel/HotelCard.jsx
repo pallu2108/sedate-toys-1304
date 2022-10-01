@@ -1,11 +1,12 @@
 
 import { Badge, Box, Button, Flex, HStack, Image, Img, StackDivider, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
-
+import { useDispatch } from 'react-redux'
+import {  POST_CART } from '../../Redux/AppRedux/action'
 import { CircleIcon } from './Rating/rating'
 
 
-const HotelCard = ({ id, srcImg, name, price, reviews, imageSrc, rating, best_site, best_site_url, free_wifi, free_parking, location, Reserve_payAtStay, free_Cancellation }) => {
+  const HotelCard = ({ id, srcImg, name, price, reviews, imageSrc, rating, best_site, best_site_url, free_wifi, free_parking, location, Reserve_payAtStay, free_Cancellation }) => {
     return (
         <Box marginBottom={"10px"} width={["100%", "100%", "100%"]} borderRadius="5px" boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" _hover={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}>
             <Flex width={"100%"} flexWrap={"wrap"} bg={"white"} color={"black"} >
