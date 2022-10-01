@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Box,Flex,HStack,IconButton,Button,useDisclosure,useColorModeValue,Stack, Image, useColorMode,} from '@chakra-ui/react';
+import {Box,Flex,HStack,IconButton,Button,useDisclosure,useColorModeValue,Stack, Image, useColorMode, Text, VStack,} from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { NavLink } from 'react-router-dom';
 import { IoMdNotificationsOutline } from "react-icons/io";
@@ -9,7 +9,7 @@ import { FiEdit2 } from "react-icons/fi";
 import Weblogo from "../img/Tripadvisor_lockup_horizontal_secondary_registered.svg"
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import Search from './Search';
-import HotelCard from '../Pages/Hotel/HotelCard';
+import { TiShoppingCart } from "react-icons/ti"
 
 const Links = [
   {titel:'Review',
@@ -41,7 +41,7 @@ export const Navbar=()=> {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box><Image w={200} src={Weblogo} alt='LOGO'/></Box>
+            <Box><NavLink to="/"><Image w={200} src={Weblogo} alt='LOGO'/></NavLink></Box>
 
           </HStack>
           <Flex alignItems={'center'}>
@@ -53,6 +53,7 @@ export const Navbar=()=> {
                 <NavLink key={link.titel} to={link.to}><Flex justify={"center"} align="center" gap={2} >{link.logo}{link.titel}</Flex></NavLink>
               ))}
               <Button borderRadius={30}>Sign in</Button>
+              <HStack justify={"center"} align={"center"}><NavLink to={"/cart"}><TiShoppingCart color={"red"}/><Text fontWeight={700} color={"red"} ml={0} mb={2}>0</Text></NavLink></HStack>
               <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button>
             </HStack>
             </Flex>
