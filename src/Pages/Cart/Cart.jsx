@@ -6,30 +6,44 @@ import {
   Flex,
   Heading,
   Divider,
+  Image,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import "./cart.css";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addToBasket, removeFromBasket } from "../../Redux/AppRedux/action"
 import Footer from "../../Components/Footer";
+import { useRef } from "react";
+import { getCartData, removeFromBasket } from "../../Redux/AppRedux/action";
 
 export const Cart = () => {
   const dispatch = useDispatch();
   const basket = useSelector((state) => state.AppReducer.basket);
   let totalPrice = 0;
-  console.log(basket);
-
   useEffect(() => {
-    dispatch(addToBasket());
-  }, [dispatch]);
+    dispatch(getCartData());
+  }, []);
 
-  const removingFromBasket = (id,name) => {
-    if (alert(`Cart Item will be removed ${name}`)) {
+  console.log(basket, "basket")
+  // const deleteFromCart = (id) => {
+  //   if (alert(`Cart Item will be removed,item Id ${id}`)) {
+  //     // let newBasket = basket.filter((item) => item.id !== id);
+  //     dispatch(removeFromBasket(id))
+  //       .then(() => {
+  //         dispatch(getCartData());
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  //   }
+  // };
+  //-----------------------------------------
+  const deleteFromCart = (id,) => {
+    if (alert(`Cart Item will be removed,item Id ${Date.now()}`)) {
       let newBasket = basket.filter((item) => item.id !== id);
       dispatch(removeFromBasket(id, { basket: newBasket }))
         .then(() => {
-          dispatch(addToBasket());
+          dispatch(getCartData());
         })
         .catch((e) => {
           console.log(e);
@@ -40,6 +54,12 @@ export const Cart = () => {
   return (
     <>
       <br />
+      {/* <>{basket.map((item) => {
+        return (<Box>
+          <Image key={item.id} src={item.Image} />
+        </Box>)
+      })}
+      </> */}
       <Divider width="100%" />
 
       <Container maxW="90%" padding="1rem" className="top">
@@ -67,16 +87,17 @@ export const Cart = () => {
               {basket?.map((item) => {
                 totalPrice = totalPrice + 2 * Number(item.price);
                 return (
-                  <Box>
+                  <Box key={item.id}>
                     <Flex gap="1rem">
                       <Box>
                         <Flex direction="column" p={2}>
                           <Box>
-                            <img src={item.imageUrl} alt="img" width="120px" />
+                            <img src={item.Image} alt="img" width="120px" />
                           </Box>
                           <Box>
                             <Box
-                              onClick={() => removingFromBasket(item.id)}
+                              // onClick={() => deleteFromCart(item.id)}
+                              onClick={() => dispatch(removeFromBasket(item.id))}
                               _hover={{ cursor: "pointer" }}
                             >
                               <b>
@@ -90,7 +111,7 @@ export const Cart = () => {
                         <Flex direction="column" p={2}>
                           <Box>
                             <Heading size="md">
-                              <b>{item.title}</b>
+                              <b>{item.name}</b>
                             </Heading>
                           </Box>
 
