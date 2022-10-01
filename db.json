@@ -324,7 +324,7 @@
       "id": 2,
       "name": "Alto Vino",
       "rating": 4,
-      "price":2000 ,
+      "price": 2000,
       "ratePic": [
         {
           "id": 1,
@@ -351,7 +351,7 @@
       "id": 3,
       "name": "Spice Kitchen",
       "rating": 4,
-      "price":3000 ,
+      "price": 3000,
       "ratePic": [
         {
           "id": 1,
@@ -494,7 +494,7 @@
       "id": 8,
       "name": "The Market",
       "rating": 4,
-      "price": 7300 ,
+      "price": 7300,
       "ratePic": [
         {
           "id": 1,
@@ -574,6 +574,40 @@
       "imageUrl": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/80/20/35/caption.jpg?w=300&h=300&s=1",
       "title": "Pune to Lonavala Monsoon Drive in Private Vehicle",
       "price": "2250"
+    },
+    {
+      "id": 2,
+      "Image": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/d4/fa/fa.jpg",
+      "title": "All Inclusive Day Trip to Taj Mahal, Agra Fort and Baby Taj from Delhi by Car",
+      "by_way": "By Golden Triangle Delhi Agra Jaipur Tour.",
+      "reviews": 152,
+      "about_trip": "See India's most famous monument, the Taj Mahal, and have time left over to check out the Mughal-era Agra Fort and the white-marble Baby Taj on this full-day trip from Delhi; you even have your own driver to pick you up in Delhi and take you back at the end of your visit plus a tour guide in Agra who is on hand to guide you through the city.",
+      "price": 4612,
+      "duration": "12-13 hours",
+      "languages": "German, Russian, Japanese, English, Italian, French, Spanish",
+      "highlight": [
+        "Travel from Delhi to Agra and back in an air-conditioned vehicle",
+        "Upgrade to include a buffet lunch and/or included entrance fees ",
+        "A local guide shows you around Agra highlights",
+        "A private guide and vehicle ensure a personalized experience"
+      ]
+    },
+    {
+      "id": 1,
+      "Image": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/74/9d/1b.jpg",
+      "title": "Four-Day Private Luxury Golden Triangle Tour to Agra and Jaipur From New Delhi",
+      "by_way": "By Golden Triangle Delhi Agra Jaipur Tour.",
+      "reviews": 200,
+      "about_trip": "To explore India’s Golden Triangle from Delhi, you’d need to handle all the logistics, including trains, hotels, cabs, tickets, and local guides. Leave all the planning to someone else on this private tour, which includes a driver-guide, tickets, and transport by private air-conditioned vehicle. Tour must-visit sights such as the Taj Mahal, Agra Fort, and Amber Fort.",
+      "price": 15959.84,
+      "duration": "4 days",
+      "languages": "German, Russian, English, French, Spanish",
+      "highlight": [
+        "Travel the Golden Triangle from Delhi by private air-conditioned vehicle",
+        "Visit Delhi, Agra, and Jaipur in four days, without travel or ticket hassles ",
+        "Explore the Taj Mahal, Agra Fort, and Amber Fort with personal guides ",
+        "Option to include 4- or 5-star hotels with daily breakfast"
+      ]
     }
   ]
 }

@@ -8,33 +8,35 @@ import {
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { FaGlobe, FaMobileAlt } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { postCartData } from '../Redux/AppRedux/action';
 
 const PlaceDetails = () => {
     const { id } = useParams();
 
     const [singlePlace, setSinglePlace] = useState({});
     const place = useSelector(state => {
-        console.log(state.AppReducer.places, "state")
+        // console.log(state.AppReducer.places, "state")
         return state.AppReducer.places
     });
+    const dispatch = useDispatch();
     const placeById = place.find((book) => book.id === Number(id));
-    console.log(id, "id", place, "place", placeById, "placeById")
+    // console.log(id, "id", place, "place", placeById, "placeById")
     useEffect(() => {
         if (id) {
             const placeById = place.find((elem) => elem.id === Number(id));
-            console.log(place, placeById)
+            // console.log(place, placeById)
             placeById && setSinglePlace(placeById)
         }
     }, [place, id])
-    console.log(singlePlace)
+    // console.log(singlePlace)
     const current = new Date();
     return (
-        <Box paddingY={"20px"} width={["100%", "80%"]} bgColor="white" margin={"auto"} color={"black"}>
+        <Box  paddingY={"20px"} width={["100%", "80%"]} bgColor="white" margin={"auto"} color={"black"}>
             <Flex flexWrap={"wrap"} width={"100%"} justifyContent={"space-between"} >
                 <Box width={["100%", "45%"]} marginX={"auto"} >
-                    <Image  w={["100%", "100%", "100%"]} src={singlePlace.Image} alt='' />
+                    <Image w={["100%", "100%", "100%"]} src={singlePlace.Image} alt='' />
                 </Box>
                 <Box padding={"10px"} width={["100%", "50%"]} align={"left"} alignItems={"flex-start"} justifyContent={"flex-start"}>
                     <Text fontWeight={"700"} fontSize={["22px", "22px", "24px"]} align={"left"} paddingBottom={"5px"}>{singlePlace.title}</Text>
@@ -72,7 +74,9 @@ const PlaceDetails = () => {
                                 per adult (price varies by group size)
                             </Text>
                         </VStack>
-                        <Button size='md' paddingX={"40px"} borderRadius={"20px"} bg="#f2b203" backgroundColor={"#f2b203"} color={"black"}>
+                        <Button size='md' paddingX={"40px"} borderRadius={"20px"} bg="#f2b203" backgroundColor={"#f2b203"} color={"black"} onClick={() => {
+                            dispatch(postCartData(singlePlace))
+                        }}   >
                             Add to Basket
                         </Button>
                     </HStack>

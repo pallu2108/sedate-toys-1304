@@ -31,6 +31,16 @@ const reducer = (state = initialState, { type, payload }) => {
       return { ...state, isLoading: false, isError: true };
     }
 
+    case types.CART_REQUEST: {
+      return { ...state, isLoading: true, isError: false };
+    }
+    case types.CART_SUCCESS: {
+      return { ...state, isLoading: false, basket: payload, isError: false };
+    }
+    case types.CART_FAILURE: {
+      return { ...state, isLoading: false, isError: true };
+    }
+
     case types.RESTAURANTS_REQUEST: {
       return { ...state, isLoading: true, isError: false };
     }
@@ -56,20 +66,6 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case types.SIGHT_FAILURE: {
       return { ...state, isLoading: false, isError: true };
-    }
-    case types.ADD_TO_BASKET_SUCCESS: {
-      return {
-        isLoading: false,
-        isError: false,
-        basket: [...payload],
-      };
-    }
-
-    case types.ADD_TO_BASKET_FAILURE: {
-      return {
-        isLoading: false,
-        isError: true,
-      };
     }
 
     case types.REMOVE_FROM_BASKET_REQUEST: {

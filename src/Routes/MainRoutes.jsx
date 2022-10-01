@@ -19,6 +19,7 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/review" element={<Review />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/trips" element={<Trips />} />
         <Route path="/alert" element={<Alert />} />
         <Route path="/restaurants" element={<Restaurant />} />
