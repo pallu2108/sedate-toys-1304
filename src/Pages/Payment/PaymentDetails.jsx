@@ -1,11 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import "../Payment/payment.css"
 const PaymentDetails = () => {
     const [name,setName] = useState("")
+    const navigate = useNavigate();
     const handleSubmit =(event) => {
         event.preventDefault();
         alert("Booking Confirm!")
+        navigate("/")
     }
   return (
     <form onSubmit={handleSubmit}>
