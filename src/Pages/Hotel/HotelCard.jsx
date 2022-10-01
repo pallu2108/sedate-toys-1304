@@ -2,16 +2,15 @@
 import { Badge, Box, Button, Flex, HStack, Image, Img,StackDivider, Text, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { addToBasket } from '../../Redux/AppRedux/action'
+import {  POST_CART } from '../../Redux/AppRedux/action'
 
 import { CircleIcon } from './Rating/rating'
 
 
 const HotelCard = ({id,srcImg,name,ratePic,type,comment,price,reviews,imageSrc,rating}) => {
     const dispatch =useDispatch();
-    const addtocart =()=>{
-        dispatch(addToBasket())
-    }
+
+
 
     return (
         <Box width={["100%", "100%", "100%"]} borderRadius="5px" boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" _hover={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}>
@@ -27,7 +26,7 @@ const HotelCard = ({id,srcImg,name,ratePic,type,comment,price,reviews,imageSrc,r
                         <VStack wrap={"wrap"} width={"30%"} padding={"10px"} >
                             <Img width={"50%"} src='https://static.tacdn.com/img2/branding/hotels/Agoda.png' alt='' />
                             <Text fontWeight={"500"} fontSize={["18px", "20px", "22px"]} _hover={{ textDecoration: "underline" }}>Price: ₹{price ? Math.ceil(price -(price*30/100)): 2400}</Text>
-                            <Button onClick={addtocart} size='sm' borderRadius={"20px"} bg="#f2b203" width={"100%"} backgroundColor={"#f2b203"} color={"black"}>
+                            <Button  size='sm' borderRadius={"20px"} bg="#f2b203" width={"100%"} backgroundColor={"#f2b203"} color={"black"}>
                                <HStack> <Text>View Deal</Text> <Badge borderRadius='full' p='1' colorScheme='teal'>30% off</Badge></HStack>
                             </Button>
                             <Text alignSelf={"start"} lineHeight={"10px"} fontWeight={"400"} fontSize={["12px"]} > &#x2713; Free Cancellation</Text>

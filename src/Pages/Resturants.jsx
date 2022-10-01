@@ -13,15 +13,17 @@ import {
   Box,
 } from "@chakra-ui/react";
 import Footer from "../Components/Footer";
-import { getRestuarant } from "../Redux/AppRedux/action";
+import { getRestuarant, POST_CART } from "../Redux/AppRedux/action";
 import HotelCard from "./Hotel/HotelCard";
 import Question from "../Components/Question";
+
 
 
 const Restaurants = () => {
   let dispatch = useDispatch();
   const ResturantsData = useSelector((store) => store.AppReducer.restaurant);
   const [sort, setSort] = useState("");
+
    
   const handleChangerating = (e) => {
     e.preventDefault();
@@ -88,7 +90,7 @@ const Restaurants = () => {
                     r.type.includes("Hotel")).map((rest, ind) => {
                 return (
                   <div key={rest.id} className={styles.res}>
-                    <HotelCard imageSrc={rest.imageSrc} name={rest.name} id={rest.id} price={rest.price} rating={rest.rating}/>
+                    <HotelCard imageSrc={rest.imageSrc} name={rest.name} id={rest.id} price={rest.price} rating={rest.rating} />
                   </div>
                 );
               })}

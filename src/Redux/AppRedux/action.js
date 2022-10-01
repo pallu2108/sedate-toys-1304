@@ -25,18 +25,6 @@ export const restaurantFailure = () => {
   return { type: types.RESTAURANTS_FAILURE };
 };
 
-export const sightRequest = () => {
-  return { type: types.SIGHT_REQUEST };
-};
-
-export const sightSuccess = (payload) => {
-  return { type: types.SIGHT_SUCCESS, payload };
-};
-
-export const sightFailure = () => {
-  return { type: types.SIGHT_FAILURE };
-};
-
 
 export const addToBasketRequest = () => {
   return {
@@ -87,29 +75,6 @@ export const getHotel = (dispatch) => {
     .catch((err) => dispatch(hotelFailure()));
 };
 
-export const placesRequest = () => {
-  return { type: types.PLACES_REQUEST };
-};
-
-export const placesSuccess = (payload) => {
-  return { type: types.PLACES_SUCCESS, payload };
-};
-
-export const placesFailure = () => {
-  return { type: types.PLACES_FAILURE };
-};
-
-export const placesdata = (payload) => (dispatch) => {
-  dispatch(placesRequest());
-  axios
-    .get("http://localhost:8080/items", payload)
-    .then((r) => {
-      dispatch(placesSuccess(r.data));
-    })
-    .catch((e) => {
-      dispatch(placesFailure(e));
-    });
-};
 
 // export const getRestuarant =(params)= (dispatch) => {
 //   dispatch(restaurantRequest());
@@ -131,19 +96,12 @@ export const getRestuarant = (dispatch) => {
 };
 
 
-export const getSight = (dispatch) => {
-  dispatch(sightRequest());
-  return axios
-    .get("http://localhost:8080/sight")
-    .then((res) => {
-      dispatch(sightSuccess(res.data));
-    })
-    .catch((err) => dispatch(sightFailure()));
-};
+
 export const addToBasket = () => (dispatch) => {
   dispatch(addToBasketRequest());
   return axios
-    .post("http://localhost:8080/sight")
+    // .get("http://localhost:8080/basket")
+    .get("https://trip-advisor.onrender.com/hotels")
     .then((res) => {
       console.log("res:", res.data);
       return dispatch(addToBasketSuccess(res.data));
@@ -166,3 +124,11 @@ export const removeFromBasket = (id) => (dispatch) => {
       dispatch(removeFromBasketFailure(e));
     });
 };
+
+
+export const POST_CART =(id,payload) =>(dispatch)=>{
+  dispatch({type:types.CART_ITEMS_LOADING})
+ return axios.patch(`http://localhost:8080/basket/${id}`,payload)
+  .then((r)=> ({type:types.CART_ITEMS_SUCESS,payload:r.data}))
+  .catch((e)=>({type:types.CART_ITEMS_FAILURE,e}))
+}
