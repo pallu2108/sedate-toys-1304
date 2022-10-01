@@ -1,0 +1,291 @@
+.main-div{
+    width: 99%;
+    height: auto;
+    margin: auto;
+}
+.sub-div-1{
+    width: 75%;
+    margin: auto;
+    height: 150px;
+    /* border: 1px solid red; */
+}
+.logo{
+    width: 180px;
+    height: 180px;
+}
+.sub-div-1-A{
+  margin-top: -30px;
+  padding-left: 70px;
+}
+.sub-div-1-B{
+    margin-top: -60px;
+    padding-left: 280px;
+    display: flex;
+  }
+  .line-1{
+    width: 150px;
+    height: 7px;
+    background-color: black;
+    border-radius: 5px;
+  }
+  .line-1-1{
+    font-weight: 500;
+    padding-left: 15px;
+    font-size: 17px;
+  }
+  .line-div-2{
+    padding-left: 70px;
+  }
+  .line-2{
+    width: 150px;
+    height: 7px;
+    border : 2px solid black;
+    border-radius: 5px;
+  }
+  .main-line{
+    margin-top: 40px;
+    /* color: black; */
+    width: 100%;
+    border: 0.3px solid rgb(163, 159, 159);
+    background-color:rgb(163, 159, 159);
+  }
+  .sub-div-2{
+    width: 60%;
+    margin: auto;
+    /* border: 1px solid red; */
+}
+.sub-div-2-A{
+    margin-top: 30px;  
+}
+.header-2-A{
+    font-weight: 500;
+    font-size: 23px;
+}
+.header-2-A2{
+    font-weight: 500;
+    font-size: 23px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.input-div-2{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(223, 250, 243);
+    padding-left: 20px;
+    color: black;
+    font-weight: normal;
+    margin-top: 10px;
+}
+.sub-div-2-B{
+    display: flex;
+    margin-top: 30px;
+}
+.sub-div-2-BA{
+    width: 55%;
+    /* border: 1px solid red; */
+}
+.sub-div-2-BB{
+    width: 44%;
+    margin-left: 70px;
+}
+.contact-div{
+    display: flex;
+    /* justify-content: space-evenly; */
+    margin-bottom: 10px;
+}
+.header-2-email{
+    font-size: 16px;
+    font-weight: 500;
+}
+.header-2-email1{
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 10px;
+
+}
+.email-input{
+    width: 240px;
+    height: 45px;
+    /* background-color: black; */
+    border: 1.7px solid grey;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.add-input{
+    width: 180px;
+    height: 45px;
+    /* background-color: black; */
+    border: 1.7px solid grey;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.card-input{
+    width: 400px;
+    height: 45px;
+    /* background-color: black; */
+    border: 1.4px solid grey;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.code-input{
+    width: 120px;
+    height: 45px;
+    /* background-color: black; */
+    border: 1.4px solid grey;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.code-input1{
+    width: 120px;
+    height: 45px;
+    /* background-color: black; */
+    border: 1.4px solid grey;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.phone-div{
+    margin-left: 15px;
+}
+.label-1{
+    font-size: 14px;
+    padding-left: 10px;
+}
+.heading-2{
+    padding-bottom: 10px;
+    padding-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.heading-3{
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+.location-input{
+    width: 495px;
+    height: 45px;
+    /* background-color: black; */
+    border: 1.7px solid grey;
+    border-radius: 5px;
+    /* margin-top: 10px; */
+    padding-left: 10px;
+}
+.activity-input{
+    width: 240px;
+    height: 45px;
+    /* background-color: black; */
+    border: 1.7px solid grey;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+.heading-4{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 500;
+}
+.main-line2{
+    border: 0.2px solid grey;
+    background-color: grey;
+}
+.para-1{
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: underline;
+    padding-top: 10px;
+}
+.next{
+    width: 400px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    margin-left: 60px;
+    margin-top: 25px;
+}
+.submit{
+    width: 400px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    margin-left: 20px;
+    margin-top: 60px;
+}
+.review-order{
+    width: 95%;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.review-heading{
+    font-size: 22px;
+    font-weight: 500;
+    padding-left: 20px;
+}
+.description-div{
+    display: flex;
+}
+.descr-img{
+    width: 110px;
+    height: 100px;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.descr{
+    margin-top: 30px;
+    padding-left: 20px;
+}
+.descr-head{
+    font-weight: 500;
+}
+.descr-para{
+    font-size: 15px;
+}
+.descr-para1{
+    font-size: 15px;
+    padding-top: 10px;
+}
+.description-div-2{
+    display: flex;
+}
+.descr-div2-1{
+    margin-left: 20px;
+}
+.descr-para2{
+    font-size: 16px;
+    padding-top: 10px;
+    font-weight: 500;
+    padding-bottom: 30px;
+}
+.descr-div2-2{
+    margin-left: 150px;
+}
+.booking{
+    width: 95%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.hr-1{
+    border: 0.05px solid gray;
+    margin: auto;
+    width: 90%;
+    margin-top: 10px;
+}
+.main-para1{
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 20px;
+    padding-bottom: 3px;
+    padding-top: 10px;
+}
+.main-para2{
+ font-size: 14px;
+ padding-left: 55px;
+ font-weight: 450;   
+ /* padding-top: 10px; */
+}
