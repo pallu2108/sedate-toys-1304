@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {Box,Flex,HStack,IconButton,Button,useDisclosure,useColorModeValue,Stack, Image, useColorMode, Text, VStack,} from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
@@ -10,6 +10,9 @@ import Weblogo from "../img/Tripadvisor_lockup_horizontal_secondary_registered.s
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import Search from './Search';
 import { TiShoppingCart } from "react-icons/ti"
+import { useDispatch, useSelector } from 'react-redux';
+import { useRef } from 'react';
+import { addToBasket } from '../Redux/AppRedux/action';
 
 const Links = [
   {titel:'Review',
@@ -26,7 +29,12 @@ to:"/alert"}
 export const Navbar=()=> {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-
+  const dispatch =useDispatch();
+  const basket = useSelector((state) => state.AppReducer.basket);
+  useEffect(() => {
+    dispatch(addToBasket());
+  }, [dispatch]);
+console.log(basket.length,956);
   return (
     <>
     <div   >
@@ -53,7 +61,7 @@ export const Navbar=()=> {
                 <NavLink key={link.titel} to={link.to}><Flex justify={"center"} align="center" gap={2} >{link.logo}{link.titel}</Flex></NavLink>
               ))}
               <Button borderRadius={30}>Sign in</Button>
-              <HStack justify={"center"} align={"center"}><NavLink to={"/cart"}><TiShoppingCart color={"red"}/><Text fontWeight={700} color={"red"} ml={0} mb={2}>0</Text></NavLink></HStack>
+              <HStack justify={"center"} align={"center"}><NavLink to={"/cart"}><TiShoppingCart color={"red"}/><Text fontWeight={700} color={"red"} ml={0} mb={2}>{basket.length}</Text></NavLink></HStack>
               <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button>
             </HStack>
             </Flex>
