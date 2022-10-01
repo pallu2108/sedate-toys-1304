@@ -6,6 +6,10 @@ import Alert from '../Pages/Alert';
 import { Cart } from '../Pages/Cart/Cart';
 
 import Home from '../Pages/Home';
+
+
+import PaymentDetails from '../Pages/Payment/PaymentDetails';
+import TravelDetails from '../Pages/Payment/TravellerDetails';
 import Hotel from '../Pages/Hotel/Hotel';
 import PlaceDetails from '../Pages/PlaceDetails';
 import Restaurant from '../Pages/Restaurant/Restaurant';
@@ -17,6 +21,9 @@ const MainRoutes = () => {
       <Navbar />
 
       <Routes>
+
+                
+
         <Route path="/" element={<Home />} />
         <Route path="/review" element={<Review />} />
         <Route path="/cart" element={<Cart />} />
@@ -26,6 +33,9 @@ const MainRoutes = () => {
         <Route path="/hotels" element={<Hotel />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="/:id" element={<PlaceDetails />} />
+        <Route path='/travel-details' element={<TravelDetails/>}/>
+        <Route path="/payment-details" element={<PaymentDetails/>}/>
+
       </Routes>
     </>
   )
