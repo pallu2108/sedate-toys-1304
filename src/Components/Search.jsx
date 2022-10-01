@@ -16,7 +16,7 @@ const Search = () => {
     <Flex alignItems={'center'}  px={[null,null,40]}>
     <HStack spacing={4}>
   <InputGroup>
-  <NavLink to={"/hotels-search"}>
+  <NavLink to={"/hotels"}>
     <Flex justify={"space-between"} >
       <InputLeftElement
       pointerEvents='none'
@@ -36,7 +36,7 @@ const Search = () => {
     </NavLink>
   </InputGroup>
   <InputGroup>
-  <NavLink to={"/holidays-homes-search"} >
+  <NavLink to={"/"} >
     <InputLeftElement
       pointerEvents='none'
       children={<IoMdHome color='gray.300' />}
@@ -45,7 +45,7 @@ const Search = () => {
     </NavLink>
   </InputGroup>
   <InputGroup>
-  <NavLink to={"/resturants-search"} >
+  <NavLink to={"/restaurants"} >
     <InputLeftElement
       pointerEvents='none'
       children={<ImSpoonKnife color='gray.300' />}

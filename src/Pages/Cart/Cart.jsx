@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import "./cart.css";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addToBasket, removeFromBasket } from "../../Redux/AppRedux/action"
+// import { addToBasket, removeFromBasket } from "../../Redux/AppRedux/action"
 import Footer from "../../Components/Footer";
 import { useRef } from "react";
 
@@ -21,21 +21,21 @@ export const Cart = () => {
   let totalPrice = 0;
 
   useEffect(() => {
-    dispatch(addToBasket());
+    // dispatch(addToBasket());
   }, [dispatch]);
 
-  const removingFromBasket = (id,) => {
-    if (alert(`Cart Item will be removed,item Id ${Date.now()}`)) {
-      let newBasket = basket.filter((item) => item.id !== id);
-      dispatch(removeFromBasket(id, { basket: newBasket }))
-        .then(() => {
-          dispatch(addToBasket());
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    }
-  };
+  // const removingFromBasket = (id,) => {
+  //   if (alert(`Cart Item will be removed,item Id ${Date.now()}`)) {
+  //     let newBasket = basket.filter((item) => item.id !== id);
+  //     dispatch(removeFromBasket(id, { basket: newBasket }))
+  //       .then(() => {
+  //         dispatch(addToBasket());
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  //   }
+  // };
 
   return (
     <>
@@ -76,8 +76,8 @@ export const Cart = () => {
                           </Box>
                           <Box>
                             <Box
-                              onClick={() => removingFromBasket(item.id)}
-                              _hover={{ cursor: "pointer" }}
+                              // onClick={() => removingFromBasket(item.id)}
+                              // _hover={{ cursor: "pointer" }}
                             >
                               <b>
                                 <u style={{ color: "red" }}>Remove</u>
