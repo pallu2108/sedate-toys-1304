@@ -206,6 +206,7 @@
     border-radius: 30px;
     margin-left: 60px;
     margin-top: 25px;
+    text-align: center;
 }
 .submit{
     width: 400px;
@@ -215,6 +216,7 @@
     border-radius: 30px;
     margin-left: 20px;
     margin-top: 60px;
+    text-align: center;
 }
 .review-order{
     width: 95%;
