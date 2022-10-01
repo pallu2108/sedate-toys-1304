@@ -90,7 +90,7 @@ export const Cart = () => {
                         <Flex direction="column" p={2}>
                           <Box>
                             <Heading size="md">
-                              <b>{item.title}</b>
+                              <b>{item.name}</b>
                             </Heading>
                           </Box>
 
