@@ -12,6 +12,7 @@ import Search from './Search';
 import { TiShoppingCart } from "react-icons/ti"
 import { useDispatch, useSelector } from 'react-redux';
 import { useRef } from 'react';
+import { getCartData } from '../Redux/AppRedux/action';
 // import { addToBasket } from '../Redux/AppRedux/action';
 
 const Links = [
@@ -38,8 +39,10 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const basket = useSelector((state) => state.AppReducer.basket);
   useEffect(() => {
-    // dispatch(addToBasket());
+    dispatch(getCartData());
   }, [dispatch]);
+
+  console.log(basket,"basket");
   console.log(basket.length, 956);
   return (
     <>
@@ -67,12 +70,12 @@ export const Navbar = () => {
                   <NavLink key={link.titel} to={link.to}><Flex justify={"center"} align="center" gap={2} >{link.logo}{link.titel}</Flex></NavLink>
                 ))}
                 <Button borderRadius={30}>Sign in</Button>
-                {/* <HStack justify={"center"} align={"center"}>
-                <NavLink to={"/cart"}><TiShoppingCart color={"red"}/>
-                <Text fontWeight={700} color={"red"} ml={0} mb={2}>{basket.length}
-                </Text>
-                </NavLink>
-                </HStack> */}
+                <HStack justify={"center"} align={"center"}>
+                  <NavLink to={"/cart"}><TiShoppingCart color={"red"} />
+                    <Text fontWeight={700} color={"red"} ml={0} mb={2}>{basket.length}
+                    </Text>
+                  </NavLink>
+                </HStack>
                 <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button>
               </HStack>
             </Flex>

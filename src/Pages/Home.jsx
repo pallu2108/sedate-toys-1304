@@ -35,7 +35,7 @@ function Home() {
           <div className="mid-sec-1-A">
 
             {places.length > 0 && places.map((item) => {
-              return <div className="mid-sec-1-AA">
+              return <div key={item.id} className="mid-sec-1-AA">
                 <img className="image-mid" src={item.Image} alt="" />
                 <Link to={`/${item.id}`}> <h2 className="content-1">{item.title}</h2></Link>
                 <p className="dot-1"><GoPrimitiveDot className="dot" />

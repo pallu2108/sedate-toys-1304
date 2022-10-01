@@ -43,7 +43,7 @@ export const restaurantFailure = () => {
 export const getRestaurantData = (params) => (dispatch) => {
   // console.log(params)
   dispatch(restaurantRequest());
-  return axios.get("https://trip-advisor.onrender.com/restaurants",params)
+  return axios.get("https://trip-advisor.onrender.com/restaurants", params)
     .then((r) => {
       console.log("r", r)
       dispatch(restaurantSuccess(r.data));
@@ -58,22 +58,26 @@ export const getRestaurantData = (params) => (dispatch) => {
 
 
 // -------------------------------------------------------------------------------
-export const sightRequest = () => {
-  return { type: types.SIGHT_REQUEST };
-};
 
-export const addToBasketSuccess = (payload) => {
+export const cartSuccess = (payload) => {
   return {
-    type: types.ADD_TO_BASKET_SUCCESS,
+    type: types.CART_SUCCESS,
     payload,
   };
 };
 
-export const addToBasketFailure = () => {
+export const cartFailure = () => {
   return {
-    type: types.ADD_TO_BASKET_FAILURE,
+    type: types.CART_FAILURE,
   };
 };
+export const cartRequest = () => {
+  return {
+    type: types.CART_REQUEST,
+  };
+};
+
+
 
 
 
@@ -98,6 +102,55 @@ export const removeFromBasketFailure = () => {
   };
 };
 
+// export const getCartData = () => (dispatch) => {
+//   dispatch(cartRequest());
+//   return axios
+//     .get("http://localhost:8080/basket")
+//     .then((r) => {
+//       console.log(r.data)
+//       dispatch(cartSuccess(r.data));
+//     })
+//     .catch((e) => {
+//       dispatch(cartFailure(e));
+//     });
+// };
+export const getCartData = () => (dispatch) => {
+  dispatch(cartRequest());
+  return axios
+    .get("https://trip-advisor.onrender.com/basket")
+    .then((r) => {
+      console.log(r.data)
+      dispatch(cartSuccess(r.data));
+    })
+    .catch((e) => {
+      dispatch(cartFailure(e));
+    });
+};
+
+// export const postCartData = (payload) => (dispatch) => {
+//   dispatch(cartRequest());
+//   return axios
+//     .post("http://localhost:8080/basket", payload)
+//     .then((r) => {
+//       console.log(r)
+//       dispatch(cartSuccess(r));
+//     })
+//     .catch((e) => {
+//       dispatch(cartFailure(e));
+//     });
+// };
+export const postCartData = (payload) => (dispatch) => {
+  dispatch(cartRequest());
+  return axios
+    .post("https://trip-advisor.onrender.com/basket", payload)
+    .then((r) => {
+      console.log(r.data)
+      dispatch(cartSuccess(r.data));
+    })
+    .catch((e) => {
+      dispatch(cartFailure(e));
+    });
+};
 
 
 
@@ -139,38 +192,40 @@ export const getPlacesData = () => (dispatch) => {
 // ----------------------------------------------------------------------------------
 
 
-export const getRestuarant = (dispatch) => {
-  dispatch(restaurantRequest());
-  return axios
-    .get("http://localhost:8080/restaurants")
-    .then((res) => {
-      dispatch(restaurantSuccess(res.data));
-    })
-    .catch((err) => dispatch(restaurantFailure()));
-};
+// export const getRestuarant = (dispatch) => {
+//   dispatch(restaurantRequest());
+//   return axios
+//     .get("http://localhost:8080/restaurants")
+//     .then((res) => {
+//       dispatch(restaurantSuccess(res.data));
+//     })
+//     .catch((err) => dispatch(restaurantFailure()));
+// };
 
-export const getSight = (dispatch) => {
-  dispatch(sightRequest());
-  return axios
-    // .get("http://localhost:8080/basket")
-    .get("https://trip-advisor.onrender.com/hotels")
-    .then((res) => {
-      console.log("res:", res.data);
-      return dispatch(addToBasketSuccess(res.data));
-    })
-    .catch((e) => {
-      dispatch(addToBasketFailure(e));
-    });
-};
+// export const getSight = (dispatch) => {
+//   dispatch(sightRequest());
+//   return axios
+//     // .get("http://localhost:8080/basket")
+//     .get("https://trip-advisor.onrender.com/hotels")
+//     .then((res) => {
+//       console.log("res:", res.data);
+//       return dispatch(addToBasketSuccess(res.data));
+//     })
+//     .catch((e) => {
+//       dispatch(addToBasketFailure(e));
+//     });
+// };
 
 
 
 export const removeFromBasket = (id) => (dispatch) => {
+  console.log(id)
   dispatch(removeFromBasketRequest());
   return axios
-    .delete(`http://localhost:8080/sight/${id}`)
+    .delete(`https://trip-advisor.onrender.com/basket/${id}`)
     .then((res) => {
-      return dispatch(removeFromBasketSuccess());
+      dispatch(removeFromBasketSuccess(res.data));
+      dispatch(getCartData());
     })
     .catch((e) => {
       dispatch(removeFromBasketFailure(e));
@@ -178,9 +233,9 @@ export const removeFromBasket = (id) => (dispatch) => {
 };
 
 
-export const POST_CART =(id,payload) =>(dispatch)=>{
-  dispatch({type:types.CART_ITEMS_LOADING})
- return axios.patch(`http://localhost:8080/basket/${id}`,payload)
-  .then((r)=> ({type:types.CART_ITEMS_SUCESS,payload:r.data}))
-  .catch((e)=>({type:types.CART_ITEMS_FAILURE,e}))
+export const POST_CART = (id, payload) => (dispatch) => {
+  dispatch({ type: types.CART_ITEMS_LOADING })
+  return axios.patch(`http://localhost:8080/basket/${id}`, payload)
+    .then((r) => ({ type: types.CART_ITEMS_SUCESS, payload: r.data }))
+    .catch((e) => ({ type: types.CART_ITEMS_FAILURE, e }))
 }
