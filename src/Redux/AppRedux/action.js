@@ -13,6 +13,21 @@ export const hotelFailure = () => {
   return { type: types.HOTEL_FAILURE };
 };
 
+export const getHotelData = (params) => (dispatch) => {
+  // console.log(params)
+  dispatch(hotelRequest());
+  return axios.get("https://trip-advisor.onrender.com/hotels", params)
+    .then((r) => {
+      // console.log("r", r.data)
+      dispatch(hotelSuccess(r.data));
+    })
+    .catch((e) => {
+      dispatch(hotelFailure());
+    })
+}
+
+// ---------------------------------------------------------------------------
+
 export const restaurantRequest = () => {
   return { type: types.RESTAURANTS_REQUEST };
 };
@@ -25,6 +40,24 @@ export const restaurantFailure = () => {
   return { type: types.RESTAURANTS_FAILURE };
 };
 
+export const getRestaurantData = (params) => (dispatch) => {
+  // console.log(params)
+  dispatch(restaurantRequest());
+  return axios.get("https://trip-advisor.onrender.com/restaurants",params)
+    .then((r) => {
+      console.log("r", r)
+      dispatch(restaurantSuccess(r.data));
+    })
+    .catch((e) => {
+      dispatch(restaurantFailure());
+    })
+}
+
+
+
+
+
+// -------------------------------------------------------------------------------
 export const sightRequest = () => {
   return { type: types.SIGHT_REQUEST };
 };
@@ -38,15 +71,11 @@ export const sightFailure = () => {
 };
 
 
-export const getHotel = (dispatch) => {
-  dispatch(hotelRequest());
-  return axios
-    .get("http://localhost:8080/hotels")
-    .then((res) => {
-      dispatch(hotelSuccess(res.data));
-    })
-    .catch((err) => dispatch(hotelFailure()));
-};
+
+
+
+// ----------------------------------------------------------------------------------
+
 
 export const placesRequest = () => {
   return { type: types.PLACES_REQUEST };
@@ -60,11 +89,12 @@ export const placesFailure = () => {
   return { type: types.PLACES_FAILURE };
 };
 
-export const placesdata = (payload) => (dispatch) => {
+export const getPlacesData = () => (dispatch) => {
   dispatch(placesRequest());
-  axios
-    .get("http://localhost:8080/items", payload)
+  return axios
+    .get("https://trip-advisor.onrender.com/places")
     .then((r) => {
+      console.log(r.data)
       dispatch(placesSuccess(r.data));
     })
     .catch((e) => {
@@ -72,25 +102,24 @@ export const placesdata = (payload) => (dispatch) => {
     });
 };
 
-// export const getRestuarant =(params)= (dispatch) => {
-//   dispatch(restaurantRequest());
-//   return axios
-//     .get("http://localhost:8080/restaurants")
-//     .then((res) => {
-//       dispatch(restaurantSuccess(res.data));
-//     })
-//     .catch((err) => dispatch(restaurantFailure()));
-// };
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------
+
+
 export const getRestuarant = (dispatch) => {
   dispatch(restaurantRequest());
   return axios
-    .get("https://trip-advisor.onrender.com/hotels")
+    .get("http://localhost:8080/restaurants")
     .then((res) => {
       dispatch(restaurantSuccess(res.data));
     })
     .catch((err) => dispatch(restaurantFailure()));
 };
-
 
 export const getSight = (dispatch) => {
   dispatch(sightRequest());

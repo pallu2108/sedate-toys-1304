@@ -6,11 +6,11 @@ import HotelsList from './HotelsList';
 const Hotel = () => {
     const [isLargerThan1280px] = useMediaQuery('(min-width: 1280px)');
     return (
-        <Box>
+        <Box paddingY={"10px"}>
             <Box position={"relative"} >
                 <Image filter={"blur(1.5px)"} width="100%" height={"250px"} overflow={"visible"} src='https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/lovatnet-lake-beautiful-nature-norway_rv-0czoz4l_thumbnail-1080_01.png' alt='' />
                 <Box position={"absolute"} bottom="20" width={"100%"} margin={"auto"} alignItems={"center"} justifyItems={"center"}>
-                    <Text padding={"20px"} align={"center"} fontSize={"22px"} fontWeight={"500"} > Enter dates to find the best prices</Text>
+                    <Text padding={"20px"} align={"center"} color={"white"} fontSize={"22px"} fontWeight={"500"} > Enter dates to find the best prices</Text>
                     <HStack justify={"center"} gap={"10"} width={["80%", "70%", "60%"]} margin={"auto"}>
                         <HStack bg={"green"} borderRadius={"5px"} width={"25%"}>
                             <InputGroup borderRadius={"5px"} marginLeft={"8px"} backgroundColor={"white"} color="black">
