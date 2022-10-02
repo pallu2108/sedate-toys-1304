@@ -4,7 +4,7 @@
 
 
 
-- Deployment: 
+- Deployment on vercel : https://trip-advisor-clone.vercel.app/
 - Original Website: https://www.tripadvisor.in/
 
 ## About this project
