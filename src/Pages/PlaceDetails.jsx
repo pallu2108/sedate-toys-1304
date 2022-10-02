@@ -5,23 +5,25 @@ import {
     AccordionButton,
     AccordionPanel,
     AccordionIcon,
+    useToast,
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { FaGlobe, FaMobileAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { postCartData } from '../Redux/AppRedux/action';
 
 const PlaceDetails = () => {
     const { id } = useParams();
-
+    const toast = useToast()
     const [singlePlace, setSinglePlace] = useState({});
+    const navigate = useNavigate();
     const place = useSelector(state => {
         // console.log(state.AppReducer.places, "state")
         return state.AppReducer.places
     });
     const dispatch = useDispatch();
-    const placeById = place.find((book) => book.id === Number(id));
+    // const placeById = place.find((book) => book.id === Number(id));
     // console.log(id, "id", place, "place", placeById, "placeById")
     useEffect(() => {
         if (id) {
@@ -31,9 +33,10 @@ const PlaceDetails = () => {
         }
     }, [place, id])
     // console.log(singlePlace)
+    const cart = [];
     const current = new Date();
     return (
-        <Box  paddingY={"20px"} width={["100%", "80%"]} bgColor="white" margin={"auto"} color={"black"}>
+        <Box paddingY={"20px"} width={["100%", "80%"]} bgColor="white" margin={"auto"} color={"black"}>
             <Flex flexWrap={"wrap"} width={"100%"} justifyContent={"space-between"} >
                 <Box width={["100%", "45%"]} marginX={"auto"} >
                     <Image w={["100%", "100%", "100%"]} src={singlePlace.Image} alt='' />
@@ -75,7 +78,16 @@ const PlaceDetails = () => {
                             </Text>
                         </VStack>
                         <Button size='md' paddingX={"40px"} borderRadius={"20px"} bg="#f2b203" backgroundColor={"#f2b203"} color={"black"} onClick={() => {
-                            dispatch(postCartData(singlePlace))
+                             toast({
+                                position: 'top',
+                                title: 'Added Successfully.',
+                                description: "We've added trip to your account for you. Check Cart",
+                                status: 'success',
+                                duration: 9000,
+                                isClosable: true,
+                              })
+                            return dispatch(postCartData(singlePlace))
+                            navigate("/cart")
                         }}   >
                             Add to Basket
                         </Button>

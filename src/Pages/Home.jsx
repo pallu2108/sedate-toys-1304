@@ -15,7 +15,7 @@ function Home() {
     // console.log(state.AppReducer.hotel)
     return state.AppReducer.places
   });
-  console.log(places, "places")
+  // console.log(places, "places")
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPlacesData());

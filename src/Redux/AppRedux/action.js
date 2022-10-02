@@ -115,6 +115,7 @@ export const removeFromBasketFailure = () => {
 //     });
 // };
 export const getCartData = () => (dispatch) => {
+  console.log("cart is getting called")
   dispatch(cartRequest());
   return axios
     .get("https://trip-advisor.onrender.com/basket")
@@ -141,17 +142,31 @@ export const getCartData = () => (dispatch) => {
 // };
 export const postCartData = (payload) => (dispatch) => {
   dispatch(cartRequest());
+  // console.log(payload, "payload")
   return axios
     .post("https://trip-advisor.onrender.com/basket", payload)
     .then((r) => {
-      console.log(r.data)
+      console.log(r.data, "post successfull")
       dispatch(cartSuccess(r.data));
+      dispatch(getCartData())
     })
     .catch((e) => {
       dispatch(cartFailure(e));
     });
 };
 
+export const removeFromBasket = (id) => (dispatch) => {
+  console.log(id)
+  dispatch(cartRequest());
+  return axios
+    .delete(`https://trip-advisor.onrender.com/basket/${id}`)
+    .then((res) => {
+      dispatch(getCartData());
+    })
+    .catch((e) => {
+      dispatch(cartFailure(e));
+    });
+};
 
 
 
@@ -218,19 +233,6 @@ export const getPlacesData = () => (dispatch) => {
 
 
 
-export const removeFromBasket = (id) => (dispatch) => {
-  console.log(id)
-  dispatch(removeFromBasketRequest());
-  return axios
-    .delete(`https://trip-advisor.onrender.com/basket/${id}`)
-    .then((res) => {
-      dispatch(removeFromBasketSuccess(res.data));
-      dispatch(getCartData());
-    })
-    .catch((e) => {
-      dispatch(removeFromBasketFailure(e));
-    });
-};
 
 
 export const POST_CART = (id, payload) => (dispatch) => {
