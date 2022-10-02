@@ -73,7 +73,7 @@ const reducer = (state = initialState, { type, payload }) => {
     }
 
     case types.REMOVE_FROM_BASKET_SUCCESS: {
-      return { ...state, isLoading: false, isError: false };
+      return { ...state, isLoading: false, basket: payload, isError: false };
     }
 
     case types.REMOVE_FROM_BASKET_FAILURE: {

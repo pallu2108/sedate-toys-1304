@@ -7,24 +7,31 @@ import {
   Heading,
   Divider,
   Image,
+  Text,
+  useToast,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./cart.css";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import Footer from "../../Components/Footer";
 import { useRef } from "react";
-import { getCartData, removeFromBasket } from "../../Redux/AppRedux/action";
+import { getCartData, getPlacesData, removeFromBasket } from "../../Redux/AppRedux/action";
+import { FaMobileAlt } from "react-icons/fa";
 
 export const Cart = () => {
+  const toast = useToast();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
+  useEffect(() => {
+    // dispatch(getPlacesData());
+    dispatch(getCartData());
+  }, [location.search]);
   const basket = useSelector((state) => state.AppReducer.basket);
   let totalPrice = 0;
-  useEffect(() => {
-    dispatch(getCartData());
-  }, []);
 
-  console.log(basket, "basket")
+  // console.log(basket, "basket")
   // const deleteFromCart = (id) => {
   //   if (alert(`Cart Item will be removed,item Id ${id}`)) {
   //     // let newBasket = basket.filter((item) => item.id !== id);
@@ -38,17 +45,17 @@ export const Cart = () => {
   //   }
   // };
   //-----------------------------------------
-  const deleteFromCart = (id,) => {
-    if (alert(`Cart Item will be removed,item Id ${Date.now()}`)) {
-      let newBasket = basket.filter((item) => item.id !== id);
-      dispatch(removeFromBasket(id, { basket: newBasket }))
-        .then(() => {
-          dispatch(getCartData());
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    }
+  const deleteFromCart = (id, name) => {
+    dispatch(removeFromBasket(id))
+    dispatch(getCartData());
+    toast({
+      position: 'top',
+      title: 'Removed Successfully.',
+      description: `${name} hasbeen removed from the cart`,
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    })
   };
 
   return (
@@ -89,15 +96,15 @@ export const Cart = () => {
                 return (
                   <Box key={item.id}>
                     <Flex gap="1rem">
-                      <Box>
+                      <Box >
                         <Flex direction="column" p={2}>
-                          <Box>
-                            <img src={item.Image} alt="img" width="120px" />
+                          <Box >
+                            <img src={item.Image} alt="img" width="250px" />
                           </Box>
                           <Box>
                             <Box
                               // onClick={() => deleteFromCart(item.id)}
-                              onClick={() => dispatch(removeFromBasket(item.id))}
+                              onClick={() => deleteFromCart(item.id, item.title)}
                               _hover={{ cursor: "pointer" }}
                             >
                               <b>
@@ -116,30 +123,24 @@ export const Cart = () => {
                           </Box>
 
                           <Box>
+                            <Text fontWeight={"600"}>
+                              {item.title}
+                            </Text>
                             <Flex gap={10}>
                               <Box>
                                 2 Adults * <b>₹{item.price}</b>
                               </Box>
+
                               <Box>
-                                <b>Total ₹{2 * item.price}</b>
+                                <b>Total <span style={{ color: "Red" }}> ₹{2 * item.price}</span></b>
                               </Box>
                             </Flex>
                           </Box>
                           <br />
                           <Box>
                             <Flex>
-                              <Box>
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="16"
-                                  height="16"
-                                  fill="currentColor"
-                                  className="bi bi-phone"
-                                  viewBox="0 0 16 16"
-                                >
-                                  <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />
-                                  <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-                                </svg>
+                              <Box alignItems={"flex-start"}>
+                                <FaMobileAlt color='black' />
                               </Box>
                               <Box>Mobile Ticket Accepted</Box>
                             </Flex>
@@ -165,6 +166,7 @@ export const Cart = () => {
                     <Flex direction="column">
                       <Box>Booking Fee</Box>
                       <Box>Subtotal</Box>
+                      <Divider color={"gray.500"} />
                       <Box>
                         <b>Total ({basket?.length})</b>
                       </Box>
@@ -174,6 +176,7 @@ export const Cart = () => {
                   <Box>
                     <Box> ₹0.00</Box>
                     <Box> ₹{totalPrice}</Box>
+                    <Divider color={"gray.500"} />
                     <Box>
                       <b>₹{totalPrice}</b>
                     </Box>
@@ -209,8 +212,9 @@ export const Cart = () => {
               </Box>
             </Flex>
           </Box>
-        )}
-      </Container>
+        )
+        }
+      </Container >
 
       <Box className="bottom">
         <Box p={3}>

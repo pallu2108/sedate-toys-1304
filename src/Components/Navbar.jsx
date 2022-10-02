@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode, Text, VStack, } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FiEdit2 } from "react-icons/fi";
@@ -12,7 +12,7 @@ import Search from './Search';
 import { TiShoppingCart } from "react-icons/ti"
 import { useDispatch, useSelector } from 'react-redux';
 import { useRef } from 'react';
-import { getCartData } from '../Redux/AppRedux/action';
+import { getCartData, getPlacesData } from '../Redux/AppRedux/action';
 // import { addToBasket } from '../Redux/AppRedux/action';
 
 const Links = [
@@ -37,13 +37,20 @@ export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const dispatch = useDispatch();
-  const basket = useSelector((state) => state.AppReducer.basket);
-  useEffect(() => {
-    dispatch(getCartData());
-  }, [dispatch]);
-
-  console.log(basket,"basket");
+  const location = useLocation();
+  const basket = useSelector((state) => {
+    console.log(state.AppReducer.basket)
+    return state.AppReducer.basket;
+  })
+  const count = basket.length;
+  // console.log(basket, "basket");
   console.log(basket.length, 956);
+
+  useEffect(() => {
+    // dispatch(getPlacesData());
+    dispatch(getCartData());
+  }, [location.search]);
+
   return (
     <>
       <div   >
@@ -72,7 +79,7 @@ export const Navbar = () => {
                 <Button borderRadius={30}>Sign in</Button>
                 <HStack justify={"center"} align={"center"}>
                   <NavLink to={"/cart"}><TiShoppingCart color={"red"} />
-                    <Text fontWeight={700} color={"red"} ml={0} mb={2}>{basket.length}
+                    <Text fontWeight={700} color={"red"} ml={0} mb={2}>{count}
                     </Text>
                   </NavLink>
                 </HStack>
