@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode, Text, VStack, } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FiEdit2 } from "react-icons/fi";
@@ -53,8 +53,8 @@ export const Navbar = () => {
 
   return (
     <>
-      <div   >
-        <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} as="header"  >
+      <div >
+        <Box zIndex={"10"} position="sticky" bg={useColorModeValue('white.100', 'gray.900')} px={4} as="header"  >
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'} px={[2, 200, 200]} >
             <IconButton
               size={'md'}
@@ -71,18 +71,20 @@ export const Navbar = () => {
             <Flex alignItems={'center'}>
               <HStack
                 as={'nav'}
-                spacing={4}
+                spacing={2}
                 display={{ base: 'none', md: 'flex' }}>
                 {Links.map((link) => (
                   <NavLink key={link.titel} to={link.to}><Flex justify={"center"} align="center" gap={2} >{link.logo}{link.titel}</Flex></NavLink>
                 ))}
-                <Button borderRadius={30}>Sign in</Button>
-                <HStack justify={"center"} align={"center"}>
-                  <NavLink to={"/cart"}><TiShoppingCart color={"red"} />
-                    <Text fontWeight={700} color={"red"} ml={0} mb={2}>{count}
+                {/* {flag ? <Button bg={"white"} borderRadius={30}> Logout </Button> :  */}
+                <Link to="/register"><Button bg={"white"} borderRadius={30}>  Register  </Button></Link>
+                <Link to={"/cart"}>
+                  <HStack padding={"10px"} justify={"center"} align={"center"} position={"relative"}>
+                    <TiShoppingCart size={"23px"} color={"red"} />
+                    <Text position={"absolute"} top={0} right={1.5} fontWeight={700} color={"black"}>{count}
                     </Text>
-                  </NavLink>
-                </HStack>
+                  </HStack>
+                </Link>
                 <Button onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />} </Button>
               </HStack>
             </Flex>

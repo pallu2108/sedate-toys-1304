@@ -78,14 +78,14 @@ const PlaceDetails = () => {
                             </Text>
                         </VStack>
                         <Button size='md' paddingX={"40px"} borderRadius={"20px"} bg="#f2b203" backgroundColor={"#f2b203"} color={"black"} onClick={() => {
-                             toast({
+                            toast({
                                 position: 'top',
                                 title: 'Added Successfully.',
                                 description: "We've added trip to your account for you. Check Cart",
                                 status: 'success',
-                                duration: 9000,
+                                duration: 3000,
                                 isClosable: true,
-                              })
+                            })
                             return dispatch(postCartData(singlePlace))
                             navigate("/cart")
                         }}   >

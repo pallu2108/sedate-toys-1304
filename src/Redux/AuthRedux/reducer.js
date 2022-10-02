@@ -1,54 +1,34 @@
-import * as  types from "./actionType"
+import * as types from "./actionType"
 
 const initialState = {
-    loading: false,
-    currentUser: null,
-    error: null,
+    
+    isAuth: false,
+    isAuthLoading: false,
+    isAuthError: false
 }
-
 export const reducer = (state = initialState, action) => {
-    switch (action.type) {
-        case types.REGISTER_START:
-        case types.LOGIN_START:
-        case types.LOGOUT_START:
-        case types.GOOGLE_SIGN_IN_START:
-        case types.FACEBOOK_SIGN_IN_START: 
+    const { type, payload } = action;
+    switch (type) {
+        case types.USER_LOGIN_REQUEST:
             return {
-                ...state,
-                loading: true
-            };
-        case types.LOGOUT_SUCCESS:
-            return {
-                ...state,
-                currentUser:null,
+                ...state, isAuthLoading: true
             }
-        case types.SET_USER:
-            return{
-                ...state,
-                loading:false,
-                currentUser:action.payload,
+        case types.USER_LOGIN_SUCCESS:
+            return {
+                ...state, isAuthLoading: false,
+               
+                isAuth: true,
+                isAuthError: false,
+                isAuthLoading: false
             }
-        case types.REGISTER_SUCCESS:
-        case types.LOGIN_SUCCESS:
-        case types.GOOGLE_SIGN_IN_SUCCESS:
-        case types.FACEBOOK_SIGN_IN_SUCCESS:
+        case types.USER_LOGIN_FAILURE:
             return {
-                ...state,
-                loading: false,
-                currentUser: action.payload,
-            };
-        case types.REGISTER_FAIL:
-        case types.LOGIN_FAIL:
-        case types.LOGOUT_FAIL:
-        case types.GOOGLE_SIGN_IN_FAIL:
-            return {
-                ...state,
-                loading: false,
-                error:action.payload
-            };
+                ...state, isAuthError: true,
+                token: '',
+                isAuth: false,
+                isAuthError: true
+            }
         default:
-            return state;
+            return state ;
     }
 }
-
- 

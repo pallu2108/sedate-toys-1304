@@ -168,6 +168,23 @@ export const removeFromBasket = (id) => (dispatch) => {
     });
 };
 
+export const emptyBasket = (basket) => (dispatch) => {
+  console.log(basket)
+  dispatch(cartRequest());
+  {
+    basket.map((item) => {
+      axios
+        .delete(`https://trip-advisor.onrender.com/basket/${item.id}`)
+        .then((res) => {
+          dispatch(getCartData());
+        })
+        .catch((e) => {
+          dispatch(cartFailure(e));
+        });
+    })
+  }
+
+};
 
 
 // ----------------------------------------------------------------------------------

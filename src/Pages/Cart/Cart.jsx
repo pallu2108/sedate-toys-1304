@@ -21,8 +21,8 @@ import { FaMobileAlt } from "react-icons/fa";
 
 export const Cart = () => {
   const toast = useToast();
-  const dispatch = useDispatch();
   const location = useLocation();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
     // dispatch(getPlacesData());
@@ -186,7 +186,7 @@ export const Cart = () => {
                 <p style={{ fontSize: "12px", color: "gray" }}>
                   No additional taxes and fees
                 </p>
-                <Link to="/travel-details">
+                <Link to="/travellerdetails">
                   <Button
                     p={7}
                     colorScheme="#f2b203"
