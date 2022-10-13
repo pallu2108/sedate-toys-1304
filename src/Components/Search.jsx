@@ -17,32 +17,32 @@ const Search = () => {
       <Flex alignItems={'center'} justifyContent={"center"} px={[null, null, 40]}>
         <HStack spacing={4}>
           <NavLink to={"/hotels"}>
-            <Button width={"100%"} rightIcon={<FaHotel color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
+            <Button rightIcon={<FaHotel color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
               Hotels
             </Button>
           </NavLink>
           <NavLink>
-            <Button width={"100%"} rightIcon={<GiThink color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
+            <Button rightIcon={<GiThink color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
               Things to do
             </Button>
           </NavLink>
           <NavLink to={"/"} >
-            <Button width={"100%"} rightIcon={<IoMdHome color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
+            <Button rightIcon={<IoMdHome color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
               Holidays Home
             </Button>
           </NavLink>
           <NavLink to={"/restaurants"} >
-            <Button width={"100%"} rightIcon={<ImSpoonKnife color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
+            <Button rightIcon={<ImSpoonKnife color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
               Resturants
             </Button>
           </NavLink>
           <NavLink to={"/"} >
-            <Button width={"100%"} rightIcon={<BsFillChatRightTextFill color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
+            <Button rightIcon={<BsFillChatRightTextFill color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
               Travels Fromus
             </Button>
           </NavLink>
           <NavLink to={"/"} >
-            <Button width={"100%"} rightIcon={<IoIosAdd color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
+            <Button  rightIcon={<IoIosAdd color='gray.300' />} colorScheme='white' color={"black"} variant='outline'>
               More
             </Button>
           </NavLink>

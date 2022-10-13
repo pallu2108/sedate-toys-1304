@@ -1,7 +1,6 @@
 import React, { useEffect} from 'react'
-
-import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode, Text, VStack, } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode, Text } from '@chakra-ui/react';
+import {  CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -12,6 +11,7 @@ import Search from './Search';
 import { TiShoppingCart } from "react-icons/ti"
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartData } from '../Redux/AppRedux/action';
+import Carousel from './Slider';
 
 const Links = [
   {
@@ -54,17 +54,30 @@ export const Navbar = () => {
       <div >
         <Box zIndex={"10"} position="sticky" bg={useColorModeValue('white.100', 'gray.900')} px={4} as="header"  >
           <Flex h={16} alignItems={'center'} justifyContent={'space-between'} px={[2, 200, 200]} >
-            <IconButton
-              size={'md'}
-              icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-              aria-label={'Open Menu'}
-
-              display={{ md: 'none' }}
-              onClick={isOpen ? onClose : onOpen}
-            />
+          <IconButton
+            size={'md'}
+            icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            aria-label={'Open Menu'}
+            display={{ md: 'none' }}
+            onClick={isOpen ? onClose : onOpen}
+          />
             <HStack spacing={8} alignItems={'center'}>
-              <Box><NavLink to="/"><Image w={200} src={Weblogo} alt='LOGO' /></NavLink></Box>
+              <Box><NavLink to="/"><Image pl={[50,null,null]} w={200} src={Weblogo} alt='LOGO' /></NavLink></Box>
+              {onOpen ? (
+            <Box pb={9} display={{ md: 'none' }}>
+              <Stack as={'nav'} spacing={4}>
+               <Flex justify={"center"} align={"center"}> <Link to="/register"><Button bg={"white"} borderRadius={30}>  Register  </Button></Link></Flex>
 
+              </Stack>
+              <Link to={"/cart"}>
+                  <HStack padding={"10px"} justify={"center"} align={"center"}>
+                    <TiShoppingCart size={"23px"} color={"red"} />
+                    <Text pright={1.5} fontWeight={700} color={"black"}>{count}
+                    </Text>
+                  </HStack>
+                  </Link>
+            </Box>
+          ) : null}
             </HStack>
             <Flex alignItems={'center'}>
               <HStack
@@ -95,21 +108,13 @@ export const Navbar = () => {
                 {Links.map((link) => (
                   <NavLink key={link.titel} to={link.to}><Flex justify={"center"} align="center" gap={2} >{link.logo}{link.titel}</Flex></NavLink>
                 ))}
-               <Flex justify={"center"} align={"center"}> <Link to="/register"><Button bg={"white"} borderRadius={30}>  Register  </Button></Link></Flex>
-
               </Stack>
-              <Link to={"/cart"}>
-                  <HStack padding={"10px"} justify={"center"} align={"center"}>
-                    <TiShoppingCart size={"23px"} color={"red"} />
-                    <Text pright={1.5} fontWeight={700} color={"black"}>{count}
-                    </Text>
-                  </HStack>
-                  </Link>
             </Box>
           ) : null}
         </Box>
       </div>
       < Search />
+      <Carousel/>
     </>
   );
 }
