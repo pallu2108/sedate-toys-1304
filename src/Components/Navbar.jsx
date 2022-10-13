@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 
 import { Box, Flex, HStack, IconButton, Button, useDisclosure, useColorModeValue, Stack, Image, useColorMode, Text, VStack, } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
@@ -11,9 +11,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import Search from './Search';
 import { TiShoppingCart } from "react-icons/ti"
 import { useDispatch, useSelector } from 'react-redux';
-import { useRef } from 'react';
-import { getCartData, getPlacesData } from '../Redux/AppRedux/action';
-// import { addToBasket } from '../Redux/AppRedux/action';
+import { getCartData } from '../Redux/AppRedux/action';
 
 const Links = [
   {
@@ -97,7 +95,16 @@ export const Navbar = () => {
                 {Links.map((link) => (
                   <NavLink key={link.titel} to={link.to}><Flex justify={"center"} align="center" gap={2} >{link.logo}{link.titel}</Flex></NavLink>
                 ))}
+               <Flex justify={"center"} align={"center"}> <Link to="/register"><Button bg={"white"} borderRadius={30}>  Register  </Button></Link></Flex>
+
               </Stack>
+              <Link to={"/cart"}>
+                  <HStack padding={"10px"} justify={"center"} align={"center"}>
+                    <TiShoppingCart size={"23px"} color={"red"} />
+                    <Text pright={1.5} fontWeight={700} color={"black"}>{count}
+                    </Text>
+                  </HStack>
+                  </Link>
             </Box>
           ) : null}
         </Box>
