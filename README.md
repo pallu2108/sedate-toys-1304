@@ -1,4 +1,4 @@
-# <img src="https://th.bing.com/th/id/R.64edfb9d4a014a1cf69bb5422b2fcf18?rik=fgVkeYAUY7F4ZQ&riu=http%3a%2f%2flogok.org%2fwp-content%2fuploads%2f2020%2f01%2fTripadvisor-logo-2020.png&ehk=s1QmUSntYCN1Uuud5tlrunHm%2b9Waq2DzVHRDMLVBhSM%3d&risl=&pid=ImgRaw&r=0" width="8%"/> **Tripadvisor Clone** _(Group Project)_
+# <img src="https://user-images.githubusercontent.com/50316091/229379047-5ec11460-3d5e-4426-84af-d09cab5a84ee.png" width="25"/> **Tripadvisor Clone** _(Group Project)_
 
 #### Tripadvisor, Inc. is an American online travel company that offers online hotel reservations and bookings for transportation, lodging, travel experiences, and restaurants.Tripadvisor, the world's largest travel platform, helps 463 million travelers each month make every trip their best trip. Travelers across the globe use the Tripadvisor site and app to browse more than 859 million reviews and opinions of 8.6 million accommodations, restaurants, experiences, airlines and cruises. Whether planning or on a trip, travelers turn to Tripadvisor to compare low prices on hotels, flights and cruises, book popular tours and attractions, as well as reserve tables at great restaurants. Tripadvisor, the ultimate travel companion, is available in 49 markets and 28 languages.
 
@@ -9,7 +9,7 @@
 
 ## About this project
 
-#### This project is created in a week by a team of five members -
+#### This project is created in a week by a team of four members -
 - Pallavi Jagtap <a href="https://www.linkedin.com/in/pallavi-jagtap-564b781b0" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Pallavi Jagtap" height="10" width="20" /></a>
 - Prathamesh Rawool  <a href="https://www.linkedin.com/in/prathamesh-rawool411/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Prathamesh Rawool" height="10" width="20" /></a>
 - Akash Mondal <a href="https://www.linkedin.com/in/akash-mondal-859b4b228/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Akash Mondal" height="10" width="20" /></a>
